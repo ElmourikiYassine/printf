@@ -47,4 +47,4 @@ Implement a custom conversion specifier `%R` to print the Rot13'ed string.
 
 ### Task 15: Comprehensive Implementation
 Combine all the implemented options to work well together.
-
+all
