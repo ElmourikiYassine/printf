@@ -5,112 +5,72 @@
 #include <stdio.h>
 #include <unistd.h>
 
-<<<<<<< HEAD
-#define UNUSED(x) (void)(x)
-#define BUFF_SIZE 1024
-
-/* FLAGS */
-#define F_MINUS 1
-#define F_PLUS 2
-#define F_ZERO 4
-#define F_HASH 8
-#define F_SPACE 16
-
-/* SIZES */
-#define S_LONG 2
-#define S_SHORT 1
-
 /**
- * struct fmt - Format specifier and associated function.
- * @fmt: The format specifier.
- * @fn: The function associated with the format specifier.
+ * struct Format_for_args - Holds format specifier and
+ * corresponding print function
+ * @x: Format specifier character
+ * @print_func: Pointer to corresponding print function
  */
-struct fmt {
-    char fmt;
-    int (*fn)(va_list, char[], int, int, int, int);
-};
-
-typedef struct fmt fmt_t;
-
-int _printf(const char *format, ...);
-int handle_print(const char *fmt, int *i, va_list list,
-    char buffer[], int flags, int width, int precision, int size);
-
-/****************** FUNCTIONS ******************/
-
-int print_char(va_list types, char buffer[],
-    int flags, int width, int precision, int size);
-int print_string(va_list types, char buffer[],
-    int flags, int width, int precision, int size);
-int print_percent(va_list types, char buffer[],
-    int flags, int width, int precision, int size);
-
-int print_int(va_list types, char buffer[],
-    int flags, int width, int precision, int size);
-int print_binary(va_list types, char buffer[],
-    int flags, int width, int precision, int size);
-int print_unsigned(va_list types, char buffer[],
-    int flags, int width, int precision, int size);
-int print_octal(va_list types, char buffer[],
-    int flags, int width, int precision, int size);
-int print_hexadecimal(va_list types, char buffer[],
-    int flags, int width, int precision, int size);
-int print_hexa_upper(va_list types, char buffer[],
-    int flags, int width, int precision, int size);
-
-int print_hexa(va_list types, char map_to[],
-    char buffer[], int flags, char flag_ch, int width, int precision, int size);
-
-int print_non_printable(va_list types, char buffer[],
-    int flags, int width, int precision, int size);
-
-int print_pointer(va_list types, char buffer[],
-    int flags, int width, int precision, int size);
-
-int get_flags(const char *format, int *i);
-int get_width(const char *format, int *i, va_list list);
-int get_precision(const char *format, int *i, va_list list);
-int get_size(const char *format, int *i);
-
-int print_reverse(va_list types, char buffer[],
-    int flags, int width, int precision, int size);
-
-int print_rot13string(va_list types, char buffer[],
-    int flags, int width, int precision, int size);
-
-int handle_write_char(char c, char buffer[],
-    int flags, int width, int precision, int size);
-int write_number(int is_positive, int ind, char buffer[],
-    int flags, int width, int precision, int size);
-int vi_eid(va_list types, ...);
-int write_num(int ind, char bff[], int flags, int width, int precision,
-    int length, char padd, char extra_c);
-int write_pointer(char buffer[], int ind, int length,
-    int width, int flags, char padd, char extra_c, int padd_start);
-
-int write_unsgnd(int is_negative, int ind,
-    char buffer[],
-    int flags, int width, int precision, int size);
-
-/****************** UTILS ******************/
-int is_printable(char);
-int append_hexa_code(char, char[], int);
-int is_digit(char);
-
-long int convert_size_number(long int num, int size);
-long int convert_size_unsgnd(unsigned long int num, int size);
-
-#endif /* MAIN_H */
-
-=======
 typedef struct Format_for_args
 {
-	char x;
-	int (*print_func)(void *);
+	char x;                      /* Format specifier character */
+	int (*print_func)(void *);   /* Pointer to corresponding print function */
 } format_args;
 
-int _printf(const char *format, ...);
+/**
+ * _putchar - Helper function: Writes a character to the standard output
+ * @c: The character to be written
+ * Return: 1 on success, -1 on error
+ */
 int _putchar(char c);
 
+/**
+ * _strlen - Helper function: Calculates the length of a string
+ * @s: The input string
+ * Return: Length of the string
+ */
+int _strlen(const char *s);
+
+/* Print functions for different types */
+
+/**
+ * printf_char - Print a character
+ * @c: The character to be printed
+ * Return: 1 on success, -1 on error
+ */
+int printf_char(void *c);
+
+/**
+ * printf_string - Print a string
+ * @s: The string to be printed
+ * Return: Length of the string on success, -1 on error
+ */
+int printf_string(void *s);
+
+/**
+ * printf_int - Print an integer
+ * @integer: The integer to be printed
+ * Return: 1 on success, -1 on error
+ */
+int printf_int(void *integer);
+
+/**
+ * format_analyzer - Analyze and print formatted output
+ * @format: The format string
+ * @formats: Array of format_args structs
+ * @arg: va_list of arguments
+ * Return: Number of characters printed
+ */
+int format_analyzer(const char *format, format_args *formats, va_list *arg);
+
+/**
+ * _printf - Main printf-like function
+ * @format: The format string
+ * @...: Additional arguments
+ * Return: Number of characters printed
+ */
+int _printf(const char *format, ...);
+
 #endif
->>>>>>> 5bd98117524ad03dcf24f41d21e1f4556ad2a98f
+
+
