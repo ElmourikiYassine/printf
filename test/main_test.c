@@ -1,4 +1,5 @@
 #include "./../main.h"
+#include <stdio.h>
 
 /**
  * main - Entry point
@@ -19,7 +20,9 @@
 
 int main(void)
 {
-	_printf("this is before the formater: %c%s%c", 'A', "abcd",'b');
+	_printf("%s\n", "yassine\nelmouriki\n");
+	_printf("%d\n", 1337);
+	_printf("%i\n", 1337);
 
 	return (0);
 }
