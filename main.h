@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <unistd.h>
 
+<<<<<<< HEAD
 #define UNUSED(x) (void)(x)
 #define BUFF_SIZE 1024
 
@@ -100,3 +101,15 @@ long int convert_size_unsgnd(unsigned long int num, int size);
 
 #endif /* MAIN_H */
 
+=======
+typedef struct Format_for_args
+{
+	char x;
+	int (*print_func)(void *);
+} format_args;
+
+int _printf(const char *format, ...);
+int _putchar(char c);
+
+#endif
+>>>>>>> 5bd98117524ad03dcf24f41d21e1f4556ad2a98f
