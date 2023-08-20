@@ -17,6 +17,11 @@ int _printf(const char *format, ...)
 		{'d', printf_int},
 		{'i', printf_int},
 		{'b', printf_binary},
+		{'%', printf_percent},
+		{'u', printf_unsigned},
+		{'o', printf_octal},
+		{'x', printf_hex_lower},
+		{'X', printf_hex_upper},
 		{'\0', NULL}
 	};
 
@@ -31,4 +36,3 @@ int _printf(const char *format, ...)
 	/* printf("the count is : %d\n", count); */
 	return (count);
 }
-

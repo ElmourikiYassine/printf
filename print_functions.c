@@ -132,4 +132,3 @@ int print_base_number(unsigned int num, int base, char case_flag)
 
 	return (count);
 }
-

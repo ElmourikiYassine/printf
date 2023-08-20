@@ -48,11 +48,26 @@ int printf_char(va_list c);
 int printf_string(va_list s);
 
 /**
+ * print_number - Print an integer as individual digits
+ * @num: The integer to be printed
+ *
+ * Return: Number of characters printed
+ */
+int print_number(int num);
+/**
  * printf_int - Print an integer
  * @integer: The integer to be printed
  * Return: 1 on success, -1 on error
  */
 int printf_int(va_list integer);
+
+/**
+ * printf_percent - Print a percent character
+ * @percent: Argument list (unused)
+ * Return: Always 1
+ */
+
+int printf_percent(__attribute__((unused)) va_list percent);
 
 /**
  * format_analyzer - Analyze and print formatted output
@@ -106,5 +121,45 @@ int print_base_number(unsigned int num, int base, char case_flag);
  */
 int printf_binary(va_list binary);
 
+/**
+ * printf_unsigned - Print an unsigned integer and return
+ * the count of characters printed
+ * @unsigned_int: Pointer to the unsigned integer to be printed
+ *
+ * Return: Number of characters printed
+ */
+int printf_unsigned(va_list unsigned_int);
+
+/**
+ * printf_octal - Print an unsigned integer in octal format
+ * @octal: Pointer to the unsigned integer to be printed
+ *
+ * Return: Number of characters printed
+ */
+int printf_octal(va_list octal);
+/**
+ * printf_hex_lower - Print an unsigned integer in lowercase hexadecimal format
+ * @hex_lower: Pointer to the unsigned integer to be printed
+ *
+ * Return: Number of characters printed
+ */
+int printf_hex_lower(va_list hex_lower);
+
+/**
+ * printf_hex_upper - Print an unsigned integer in uppercase hexadecimal format
+ * @hex_upper: Pointer to the unsigned integer to be printed
+ *
+ * Return: Number of characters printed
+ */
+int printf_hex_upper(va_list hex_upper);
+
+/**
+ * print_unsigned_number - Print an unsigned integer as individual digits
+ * @num: The unsigned integer to be printed
+ *
+ * Return: Number of characters printed
+ */
+int print_unsigned_number(unsigned int num);
 #endif
+
 
