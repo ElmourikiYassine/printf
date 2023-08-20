@@ -16,8 +16,13 @@ int _printf(const char *format, ...)
 		{'s', printf_string},
 		{'d', printf_int},
 		{'i', printf_int},
+		{'b', printf_binary},
+		{'%', printf_percent},
 		{'\0', NULL}
 	};
+
+	if (!format)
+		return (-1);
 
 	va_start(arg, format);
 

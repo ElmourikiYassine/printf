@@ -1,63 +1,61 @@
 #include "./../main.h"
 #include <stdio.h>
-/**
- * main - Entry point
- *
- * Return: Always 0
- */
 
 int main(void)
 {
-	int a;
-	int number;
+    int a;
+    int number;
 
+    number = 123456;
+    a = printf("this is: %i\n, %d\n", number, number);
+    printf("printf: Number of characters printed: %d\n", a);
 
-	number = 123456;
+    a = _printf("this is: %i\n, %d\n", number, number);
+    printf("_printf: Number of characters printed: %d\n", a);
 
-	a = printf("this is: %i\n, %d\n", number, number);
-	printf("%d\n", a);
+    printf("----------\n");
 
-	a = _printf("this is: %i\n, %d\n", number, number);
-	_printf("%d\n", a);
+    a = printf("%c\n", 'a');
+    printf("printf: Number of characters printed: %d\n", a);
+    a = _printf("%c\n", 'a');
+    printf("_printf: Number of characters printed: %d\n", a);
 
+    printf("----------\n");
 
-	printf("----------\n");
+    a = printf("%s\n", "Hello, World");
+    printf("printf: Number of characters printed: %d\n", a);
+    a = _printf("%s\n", "Hello, World");
+    printf("_printf: Number of characters printed: %d\n", a);
 
-	a = printf("%c\n", 'a');
-	printf("%d\n", a);
-	a = _printf("%c\n", 'a');
-	_printf("%d\n", a);
+	_printf("this binary : %b\n", 98);
 
-	printf("----------\n");
+    a = printf("%%\n");
+    printf("%d\n", a);
 
-	a = printf("%s\n", "Hello, World");
-	printf("%d\n", a);
-	a = _printf("%s\n", "Hello, World");
-	printf("%d\n", a);
+    a = _printf("%%\n");
+    _printf("%d\n", a);
 
-	printf("----------\n");
+    a = printf("%\n");
+    printf("%d\n", a);
 
-	a = printf("printf: % ");
-	printf("%d\n", a);
+    a = _printf("%\n");
+    _printf("%d\n", a);
 
-	a = _printf("_printf: % ");
-	printf("%d\n", a);
+    a = printf("%c %s %d %% %q\n", 'A', "Hello", 12345);
+    printf("%d\n", a);
 
-	printf("----------\n");
+    a = _printf("%c %s %d %% %q\n", 'A', "Hello", 12345);
+    _printf("%d\n", a);
+a = printf("A Hello 12345 %% %%\n");
+printf("%d\n", a);
 
-	a = printf("%Z");
-	printf("%d\n", a);
+a = _printf("A Hello 12345 %% %%\n");
 
-	a = _printf("%Z");
-	printf("%d\n", a);
+_printf("%d\n", a);
+    _printf("----------\n");
+	a = _printf("%\n");
+	_printf("%d", a);
 
-	printf("----------\n");
-
-	a = printf("%W");
-	printf("%d\n", a);
-
-	a = _printf("%W");
-	printf("%d\n", a);
-	return (0);
+    return (0);
 }
 

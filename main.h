@@ -14,7 +14,7 @@
 typedef struct Format_for_args
 {
 	char x;                      /* Format specifier character */
-	int (*print_func)(void *);   /* Pointer to corresponding print function */
+	int (*print_func)(va_list);   /* Pointer to corresponding print function */
 } format_args;
 
 /**
@@ -38,21 +38,28 @@ int _strlen(const char *s);
  * @c: The character to be printed
  * Return: 1 on success, -1 on error
  */
-int printf_char(void *c);
+int printf_char(va_list c);
 
 /**
  * printf_string - Print a string
  * @s: The string to be printed
  * Return: Length of the string on success, -1 on error
  */
-int printf_string(void *s);
+int printf_string(va_list s);
 
 /**
  * printf_int - Print an integer
  * @integer: The integer to be printed
  * Return: 1 on success, -1 on error
  */
-int printf_int(void *integer);
+int printf_int(va_list integer);
+
+/**
+ * printf_percent - Print a percent character
+ * @percent: Argument list (unused)
+ * Return: Always 1
+ */
+int printf_percent(__attribute__((unused)) va_list percent);
 
 /**
  * format_analyzer - Analyze and print formatted output
@@ -78,6 +85,33 @@ int _printf(const char *format, ...);
  * Return: 1 if the character is a letter, 0 otherwise
  */
 int is_char(char c);
+
+/**
+ * power - Calculate the power of a number
+ * @base: The base number
+ * @exp: The exponent
+ *
+ * Return: The result of base raised to the power of exp
+ */
+int power(int base, int exp);
+
+/**
+ * print_base_number - Print a number in a specified base
+ * @num: The number to be printed
+ * @base: The base for printing
+ * @case_flag: Flag for uppercase or lowercase letters in hexadecimal
+ *
+ * Return: Number of characters printed
+ */
+int print_base_number(unsigned int num, int base, char case_flag);
+
+/**
+ * printf_binary - Print an unsigned integer in binary format
+ * @binary: Pointer to the unsigned integer to be printed
+ *
+ * Return: Number of characters printed
+ */
+int printf_binary(va_list binary);
 
 #endif
 

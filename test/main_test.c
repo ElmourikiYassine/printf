@@ -20,8 +20,10 @@
 
 int main(void)
 {
-	_printf("%s\n", "yassine\nelmouriki\n");
+	_printf("%s\n", "yassine\nelmouriki");
+
 	_printf("%d\n", 1337);
+
 	_printf("%i\n", 1337);
 
 	return (0);
