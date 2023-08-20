@@ -42,3 +42,21 @@ int is_char(char c)
 	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
 }
 
+/**
+ * power - Calculate the power of a number
+ * @base: The base number
+ * @exp: The exponent
+ *
+ * Return: The result of base raised to the power of exp
+ */
+int power(int base, int exp)
+{
+	int result = 1;
+
+	while (exp > 0)
+	{
+		result *= base;
+		exp--;
+	}
+	return (result);
+}
