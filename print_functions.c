@@ -9,11 +9,10 @@
 int printf_char(void *c)
 {
 	char charpointer = *(char *)c;
-	int length = _strlen((char *)c);
 
 	_putchar(charpointer);
 
-	return (length + 1);
+	return (1);
 }
 
 /**
@@ -31,7 +30,7 @@ int printf_string(void *s)
 	for (i = 0; i < length; i++)
 		_putchar(string[i]);
 
-	return (length + 1);
+	return (length);
 }
 
 /**
@@ -51,13 +50,11 @@ int printf_int(void *integer)
 	if (num < 0)
 	{
 		_putchar('-');
-		count++;
 		num = -num;
 	}
 	if (num == 0)
 	{
 		_putchar('0');
-		count++;
 		return (count);
 	}
 	while (num > 0)

@@ -12,12 +12,51 @@ int main(void)
 	int number;
 
 
-	number = 19912507;
+	number = 123456;
 
-
-	a = _printf("%i\n, %d\n", number, number);
+	a = printf("this is: %i\n, %d\n", number, number);
 	printf("%d\n", a);
-	a = _printf("% ");
+
+	a = _printf("this is: %i\n, %d\n", number, number);
+	_printf("%d\n", a);
+
+
+	printf("----------\n");
+
+	a = printf("%c\n", 'a');
+	printf("%d\n", a);
+	a = _printf("%c\n", 'a');
+	_printf("%d\n", a);
+
+	printf("----------\n");
+
+	a = printf("%s\n", "Hello, World");
+	printf("%d\n", a);
+	a = _printf("%s\n", "Hello, World");
+	printf("%d\n", a);
+
+	printf("----------\n");
+
+	a = printf("printf: % ");
+	printf("%d\n", a);
+
+	a = _printf("_printf: % ");
+	printf("%d\n", a);
+
+	printf("----------\n");
+
+	a = printf("%Z");
+	printf("%d\n", a);
+
+	a = _printf("%Z");
+	printf("%d\n", a);
+
+	printf("----------\n");
+
+	a = printf("%W");
+	printf("%d\n", a);
+
+	a = _printf("%W");
 	printf("%d\n", a);
 	return (0);
 }

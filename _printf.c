@@ -9,7 +9,7 @@
 int _printf(const char *format, ...)
 {
 	va_list arg;
-	int count;
+	int count = 0;
 
 	format_args formats[] = {
 		{'c', printf_char},
