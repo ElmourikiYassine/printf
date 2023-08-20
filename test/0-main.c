@@ -7,30 +7,6 @@ int main(void)
     int number;
 
     number = 123456;
-<<<<<<< HEAD
-
-    a = printf("this is: %i\n, %d\n", number, number);
-    printf("printf: Number of characters printed: %d\n", a);
-
-    a = _printf("this is: %i\n, %d\n", number, number);
-    printf("_printf: Number of characters printed: %d\n", a);
-
-    printf("----------\n");
-
-    a = printf("%c\n", 'a');
-    printf("printf: Number of characters printed: %d\n", a);
-    a = _printf("%c\n", 'a');
-    printf("_printf: Number of characters printed: %d\n", a);
-
-    printf("----------\n");
-
-    a = printf("%s\n", "Hello, World");
-    printf("printf: Number of characters printed: %d\n", a);
-    a = _printf("%s\n", "Hello, World");
-    printf("_printf: Number of characters printed: %d\n", a);
-
-        _printf("this binary : %b\n", 98);
-=======
     a = printf("this is: %i\n, %d\n", number, number);
     printf("printf: Number of characters printed: %d\n", a);
 
@@ -80,7 +56,5 @@ _printf("%d\n", a);
 	a = _printf("%\n");
 	_printf("%d", a);
 
->>>>>>> af9bb5775638f1fb9c054af5f497aadb1464528f
     return (0);
 }
-
