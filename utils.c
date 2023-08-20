@@ -31,5 +31,14 @@ void _memcpy(void *dest, const void *src, size_t num_bytes)
 	for (i = 0; i < num_bytes; i++)
 		char_dest[i] = char_src[i];
 }
-
+/**
+ * is_char - Check if a character is a letter (a-z or A-Z)
+ * @c: The character to check
+ *
+ * Return: 1 if the character is a letter, 0 otherwise
+ */
+int is_char(char c)
+{
+	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
+}
 

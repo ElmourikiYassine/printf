@@ -71,6 +71,13 @@ int format_analyzer(const char *format, format_args *formats, va_list *arg);
  */
 int _printf(const char *format, ...);
 
-#endif
+/**
+ * is_char - Check if a character is a letter (a-z or A-Z)
+ * @c: The character to check
+ *
+ * Return: 1 if the character is a letter, 0 otherwise
+ */
+int is_char(char c);
 
+#endif
 
