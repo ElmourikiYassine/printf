@@ -1,62 +1,52 @@
 #include "main.h"
 
 /**
- * _strlen - Computes the length of a string
- * @s: The input string
+ * format_analyzer - Analyzes and processes formatted string
+ * @format: The format string to analyze
+ * @formats: Array of format_args structures
+ * @arg: Pointer to va_list containing arguments
  *
- * Return: The length of the string
+ * Return: The total number of characters printed
  */
-int _strlen(const char *s)
+int format_analyzer(const char *format, format_args *formats, va_list *arg)
 {
-	int i = 0;
+	int count = 0, i, j, character_count;
 
-	while (s[i] != '\0')
-		i++;
-
-	return (i);
-}
-
-/**
- * _memcpy - Copies memory from source to destination
- * @dest: Pointer to the destination buffer
- * @src: Pointer to the source buffer
- * @num_bytes: Number of bytes to copy
- */
-void _memcpy(void *dest, const void *src, size_t num_bytes)
-{
-	char *char_src = (char *)src;
-	char *char_dest = (char *)dest;
-	size_t i;
-
-	for (i = 0; i < num_bytes; i++)
-		char_dest[i] = char_src[i];
-}
-/**
- * is_char - Check if a character is a letter (a-z or A-Z)
- * @c: The character to check
- *
- * Return: 1 if the character is a letter, 0 otherwise
- */
-int is_char(char c)
-{
-	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
-}
-
-/**
- * power - Calculate the power of a number
- * @base: The base number
- * @exp: The exponent
- *
- * Return: The result of base raised to the power of exp
- */
-int power(int base, int exp)
-{
-	int result = 1;
-
-	while (exp > 0)
+	for (i = 0; format && format[i] != '\0'; i++)
 	{
-		result *= base;
-		exp--;
+		if (format[i] == '%')
+		{
+			if (format[i + 1] != '\0')
+			{
+				for (j = 0; formats[j].x != '\0'; j++)
+				{
+					if (format[i + 1] == formats[j].x)
+					{
+					character_count = formats[j].print_func(*arg);
+					if (character_count == -1)
+						return (-1);
+					count += character_count;
+					break;
+					}
+				}
+				if (formats[j].x == '\0')
+				{
+					_putchar('%');
+					count++;
+				}
+				i++;
+			}
+			else
+			{
+				_putchar('%');
+				count++;
+			}
+		}
+		else
+		{
+			_putchar(format[i]);
+			count++;
+		}
 	}
-	return (result);
+	return (count);
 }
