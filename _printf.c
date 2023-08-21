@@ -10,6 +10,8 @@ int _printf(const char *format, ...)
 {
 	va_list arg;
 	int count = 0;
+	char buffer[1024];
+	int buffer_index = 0;
 
 	format_args formats[] = {
 		{'c', printf_char},
@@ -29,10 +31,16 @@ int _printf(const char *format, ...)
 		return (-1);
 
 	va_start(arg, format);
+	count = format_analyzer_to_buffer(format, formats, &arg,
+		buffer, &buffer_index);
 
-	count = format_analyzer(format, formats, &arg);
+	if (buffer_index > 0)
+	{
+		write(1, buffer, buffer_index);
+		buffer_index = 0;
+	}
 	va_end(arg);
 
-	/* printf("the count is : %d\n", count); */
 	return (count);
 }
+
