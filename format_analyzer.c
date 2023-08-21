@@ -14,6 +14,7 @@ int format_analyzer_to_buffer(const char *format, format_args *formats,
 	va_list *arg, char *buffer, int *buffer_index)
 {
 	int count = 0, i, j, character_count;
+	int found = 0;
 
 	for (i = 0; format && format[i] != '\0'; i++)
 	{
@@ -21,28 +22,51 @@ int format_analyzer_to_buffer(const char *format, format_args *formats,
 		{
 			if (format[i + 1] != '\0')
 			{
-				for (j = 0; formats[j].x != '\0'; j++)
+				if (format[i + 1] == ' ')
 				{
+					return (-1);
+				}
+				if (format[i + 1] == '%')
+				{
+					buffer[(*buffer_index)++] = '%';
+					count++;
+				}
+				else if (format[i + 1] == '\n')
+				{
+					buffer[(*buffer_index)++] = '%';
+					buffer[(*buffer_index)++] = '\n';
+					count += 2;
+				}
+				else
+				{
+					found = 0;
+					for (j = 0; formats[j].x != '\0'; j++)
+					{
 					if (format[i + 1] == formats[j].x)
 					{
 					character_count = formats[j].print_func(*arg, buffer, buffer_index);
 					if (character_count == -1)
+					{
 						return (-1);
+					}
 					count += character_count;
+					found = 1;
 					break;
 					}
-				}
-				if (formats[j].x == '\0')
-				{
-					buffer[(*buffer_index)++] = '%';
-					count++;
+					}
+					if (!found)
+					{
+						buffer[(*buffer_index)++] = '%';
+						count++;
+						buffer[(*buffer_index)++] = format[i + 1];
+						count++;
+					}
 				}
 				i++;
 			}
 			else
 			{
-				buffer[(*buffer_index)++] = '%';
-				count++;
+				return (-1);
 			}
 		}
 		else
