@@ -71,7 +71,3 @@ int printf_string_with_non_printable(va_list s, char *buffer, int *buffer_index)
 	}
 
 	return (count);
-=======
->>>>>>> 660707b410444e3adad29c8dc93aeec90d07370f
-}
-
