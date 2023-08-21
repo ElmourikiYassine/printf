@@ -160,4 +160,11 @@ int printf_hex_upper(va_list hex_upper);
  * Return: Number of characters printed
  */
 int print_unsigned_number(unsigned int num);
+/**
+ * is_digit - Check if a character is a digit (0-9)
+ * @c: The character to check
+ *
+ * Return: 1 if the character is a digit, 0 otherwise
+ */
+int is_digit(char c);
 #endif
