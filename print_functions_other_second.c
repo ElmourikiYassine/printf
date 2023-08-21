@@ -25,11 +25,17 @@ int printf_hex_lower(va_list hex_lower, char *buffer, int *buffer_index)
  *
  * Return: Number of characters printed
  */
+<<<<<<< HEAD
 int printf_hex_upper(va_list hex_upper, char *buffer, int *buffer_index)
+=======
+int printf_hex_upper(va_list hex_upper,
+		char *buffer, int *buffer_index)
+>>>>>>> 660707b410444e3adad29c8dc93aeec90d07370f
 {
 	unsigned int num = va_arg(hex_upper, unsigned int);
 
 	return (print_base_number_to_buffer(num, 16, 'A', buffer, buffer_index));
+<<<<<<< HEAD
 }
 
 /**
@@ -65,4 +71,7 @@ int printf_string_with_non_printable(va_list s, char *buffer, int *buffer_index)
 	}
 
 	return (count);
+=======
+>>>>>>> 660707b410444e3adad29c8dc93aeec90d07370f
 }
+
