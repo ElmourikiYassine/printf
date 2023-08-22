@@ -49,6 +49,7 @@ int printf_hex_lower(va_list hex_lower, char *buffer, int *buffer_index);
 int printf_hex_upper(va_list hex_upper, char *buffer, int *buffer_index);
 int print_unsigned_number(unsigned int num);
 int printf_string_with_non_printable(va_list s, char *buffer, int *buffer_index);
+int printf_pointer(va_list p, char *buffer, int *buffer_index);
 
 int format_analyzer_to_buffer(const char *format, format_args *formats,
 		va_list *arg, char *buffer, int *buffer_index);

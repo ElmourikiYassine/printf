@@ -119,6 +119,14 @@ int main(void)
     _printf("Unknown:[%r]\n");
     printf("Unknown:[%r]\n");
 
+    printf("--------------------------------------------\n");
+
+    a = printf("Pointer address: %p\n", (void *)&a);
+    printf("printf: Number of characters printed: %d\n", a);
+
+    a = _printf("Pointer address: %p\n", (void *)&a);
+    _printf("printf: Number of characters printed: %d\n", a);
+    
     return (0);
 }
 
